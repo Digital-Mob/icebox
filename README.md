@@ -55,14 +55,8 @@ roll a set of 5 dice 10 times to create a string like this:
 12453 33234 23441 66134 44432 21245 52345 12346 66333 43211
 ```
 
-A popup will appear with your 12 word seed. Write this down on a piece
-of paper and/or memorize it. Select a password, this password will be
+A popup will appear to select a password, this password will be
 used to encrypt the wallet in the browser during the session.
-
-### Restoring wallet from seed
-
-Simply enter in your seed and Icebox will generate the private keys
-from it.
 
 ### Showing addresses
 
