@@ -1,6 +1,12 @@
 <html>
 <head>
 <title>icebox</title>
+
+<style type="text/css">
+  .hidden {
+    display: none;
+  }
+</style>
 </head>
   <body>
     <script src="./lightwallet.min.js"></script>
@@ -73,8 +79,7 @@
         document.getElementById('userEntropy').value = '';
         var randomSeed = lightwallet.keystore.generateRandomSeed(extraEntropy);
 
-        var infoString = 'Your new wallet seed is: "' + randomSeed + 
-          '". Please write it down on paper, you will need it to access your wallet. Do not let anyone see this seed or they can take your Ether. Please chooses a password to encrypt your wallet for this session.'
+        var infoString = 'Please chooses a password to encrypt your wallet for this session.';
 
         var password = prompt(infoString, '');
         lightwallet.keystore.deriveKeyFromPassword(password, function(err, pwDerivedKey) {
@@ -134,8 +139,10 @@
     <h1>icebox</h1>
     <h2>New Wallet</h2>
     <div><input type="text" id="userEntropy" placeholder="Type random text to generate entropy" size="80"></input><button onclick="newWallet()">Create New Wallet</button></div>
-    <h2>Restore Wallet From Seed</h2>
-    <div><input type="text" id="seed" value="" size="80"></input><button onclick="setSeed()">Restore wallet from Seed</button></div>
+    <div class="hidden">
+      <h2>Restore Wallet From Seed</h2>
+      <div><input type="text" id="seed" value="" size="80"></input><button onclick="setSeed()">Restore wallet from Seed</button></div>
+    </div>
     <h2>Show Addresses</h2>
     <div>Show <input type="text" id="numAddr" size="5" value="3"></input> more address(es) <button onclick="newAddresses('')">Show</button></div>
     <div id="addr"></div>
@@ -150,8 +157,10 @@
     <h3>Signed Transaction</h3>
     <div><textarea id='rawSignedTx' rows=6 cols=40></textarea></div>
     <div id='workflowTx'></div>
-    <h2>Show Seed</h2>
-    <button onclick="showSeed()">Show Seed</button>
+    <div class="hidden">
+      <h2>Show Seed</h2>
+      <button onclick="showSeed()">Show Seed</button>
+    </div>
     <h2>Save Encrypted Wallet</h2>
     <div><textarea id='savedWallet' rows=6 cols=40></textarea></div>
     <button onclick="saveWallet()">Save Wallet</button>
